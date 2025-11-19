@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet,  FlatList, TouchableOpacity } from 'react-native';
-import { SafeAreaView,  } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import HomeIcon from '../../assets/icons/icon_home.svg';
 import LanguageIcon from '../../assets/icons/icon_language.svg';
@@ -20,8 +20,8 @@ const DATA = [
 ];
 
 export default function HomeScreen() {
-  return (
-    <SafeAreaView style={styles.safe}>
+  const renderHeader = () => (
+    <>
       <View style={styles.headerRow}>
         <View style={styles.leftRow}>
           <HomeIcon width={22} height={22} color="#000" />
@@ -42,18 +42,21 @@ export default function HomeScreen() {
         <Text style={styles.subText}>Welcome to WasteTrack — manage and categorize wastes easily.</Text>
       </View>
 
-      {/* <View style={{ marginTop: 0 ,}}> */}
-        <Banner width={'100%'} height={389} />
-      {/* </View> */}
+      <Banner width={'100%'} height={389} />
 
       <Text style={styles.sectionTitle}>Type of waste</Text>
+    </>
+  );
 
+  return (
+    <SafeAreaView style={styles.safe}>
       <FlatList
         data={DATA}
         keyExtractor={(item) => item.id}
         numColumns={2}
         columnWrapperStyle={styles.columnWrapper}
         contentContainerStyle={{ paddingBottom: 24 }}
+        ListHeaderComponent={renderHeader}
         renderItem={({ item }) => <TypeOfWasteCard item={item} />}
       />
     </SafeAreaView>
@@ -78,7 +81,6 @@ const styles = StyleSheet.create({
   iconBtn: { padding: 6 },
   subTextWrap: { marginTop: 8 },
   subText: { color: '#333', fontSize: 14 },
-//   bannerPlaceholder: { marginTop: 16, height: 289, width: '100%', backgroundColor: '#e0e0e0', borderRadius: 8 },
   sectionTitle: { marginTop: 18, fontSize: 18, fontWeight: '600', color: '#111' },
   columnWrapper: { justifyContent: 'space-between', marginTop: 12 },
 });
