@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet,  FlatList, TouchableOpacity } from 'react-native';
+import { SafeAreaView,  } from 'react-native-safe-area-context';
+
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TypeOfWasteCard from '../components/TypeOfWasteCard';
 import Banner from '../../assets/images/home_banner.svg';
@@ -38,9 +40,9 @@ export default function HomeScreen() {
         <Text style={styles.subText}>Welcome to WasteTrack — manage and categorize wastes easily.</Text>
       </View>
 
-      <View style={{ marginTop: 16 }}>
+      {/* <View style={{ marginTop: 0 ,}}> */}
         <Banner width={'100%'} height={389} />
-      </View>
+      {/* </View> */}
 
       <Text style={styles.sectionTitle}>Type of waste</Text>
 
