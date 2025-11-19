@@ -68,7 +68,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#fff', paddingHorizontal: 16 },
+  safe: { flex: 1, backgroundColor: '#fff', paddingHorizontal: 20 },
   headerRow: {
     marginTop: 8,
     flexDirection: 'row',
