@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useSelector } from 'react-redux';
 import HomeScreen from '../screens/HomeScreen';
 import MessageScreen from '../screens/MessageScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -10,22 +11,38 @@ import ProfileIcon from '../../assets/icons/icon_profile.svg';
 const Tab = createBottomTabNavigator();
 
 export default function MainTabs() {
+  const rtl = useSelector((s) => s.language.rtl);
+
+  // Render tab screens in normal or reversed order to simulate RTL ordering
+  const screens = rtl
+    ? [
+        { name: 'Profile', component: ProfileScreen, Icon: ProfileIcon },
+        { name: 'Message', component: MessageScreen, Icon: MessageIcon },
+        { name: 'Home', component: HomeScreen, Icon: HomeIcon },
+      ]
+    : [
+        { name: 'Home', component: HomeScreen, Icon: HomeIcon },
+        { name: 'Message', component: MessageScreen, Icon: MessageIcon },
+        { name: 'Profile', component: ProfileScreen, Icon: ProfileIcon },
+      ];
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarIcon: ({ color, size }) => {
-          if (route.name === 'Home') return <HomeIcon width={size} height={size} color={color} />;
-          if (route.name === 'Message') return <MessageIcon width={size} height={size} color={color} />;
-          if (route.name === 'Profile') return <ProfileIcon width={size} height={size} color={color} />;
-          return null;
+          const scr = screens.find((s) => s.name === route.name);
+          if (!scr) return null;
+          const Icon = scr.Icon;
+          return <Icon width={size} height={size} fill={color} />;
         },
+        tabBarLabelStyle: { textAlign: 'center' },
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Message" component={MessageScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      {screens.map((s) => (
+        <Tab.Screen key={s.name} name={s.name} component={s.component} />
+      ))}
     </Tab.Navigator>
   );
 }

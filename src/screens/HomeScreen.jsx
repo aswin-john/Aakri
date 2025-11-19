@@ -11,6 +11,9 @@ import HazardousIcon from '../../assets/images/waste_hazardous.svg';
 import RvsfIcon from '../../assets/images/waste_rvsf.svg';
 import ScrapIcon from '../../assets/images/waste_scrap.svg';
 import MarketplaceIcon from '../../assets/images/waste_marketplace.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleLanguage } from '../store/languageSlice';
+import { t } from '../i18n';
 
 const DATA = [
   { id: '1', title: 'Hazardous waste', Icon: HazardousIcon },
@@ -20,26 +23,40 @@ const DATA = [
 ];
 
 export default function HomeScreen() {
+  const rtl = useSelector((s) => s.language.rtl);
+  const lang = useSelector((s) => s.language.lang);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    console.log('[redux] language state changed:', { lang, rtl });
+  }, [lang, rtl]);
+
   const renderHeader = () => (
     <>
-      <View style={styles.headerRow}>
-        <View style = {{flexDirection:'column'}}>
-            <View style={[styles.leftRow,{}]}> 
-            <HomeIcon width={22} height={22} color="#000" />
-            <Text style={styles.locationText}>  My Location</Text>
-            </View>
+      <View style={[styles.headerRow, rtl ? { flexDirection: 'row' } : {flexDirection: 'row'}]}>
+        <View style={{ flexDirection: 'column' }}>
+          <View style={[styles.leftRow, {}]}> 
+            <HomeIcon width={22} height={22} fill="#000" />
+            <Text style={[styles.locationText, rtl ? { textAlign: 'right' } : {}]}>  {t(lang, 'myLocation')}</Text>
+          </View>
 
-             <View style={styles.subTextWrap}>
-                <Text style={styles.subText}>Welcome to WasteTrack .</Text>
-             </View>
+          <View style={styles.subTextWrap}>
+            <Text style={[styles.subText, rtl ? { textAlign: 'right' } : {}]}>{t(lang, 'welcome')}</Text>
+          </View>
         </View>
 
-        <View style={styles.rightRow}>
-          <TouchableOpacity style={styles.iconBtn}>
-            <LanguageIcon width={20} height={20} color="#000" />
+        <View style={[styles.rightRow, rtl ? { flexDirection: 'row-reverse' } : {}]}>
+          <TouchableOpacity
+            style={styles.iconBtn}
+            onPress={() => {
+              // toggle language globally
+              dispatch(toggleLanguage());
+            }}
+          >
+            <LanguageIcon width={20} height={20} fill="#000" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconBtn}>
-            <MoreIcon width={20} height={20} color="#000" />
+            <MoreIcon width={20} height={20} fill="#000" />
           </TouchableOpacity>
         </View>
       </View>
@@ -74,6 +91,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    borderWidth:1,
   },
   leftRow: {
     flexDirection: 'row',
