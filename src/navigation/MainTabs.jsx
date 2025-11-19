@@ -1,9 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../screens/HomeScreen';
 import MessageScreen from '../screens/MessageScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import HomeIcon from '../../assets/icons/icon_home.svg';
+import MessageIcon from '../../assets/icons/icon_message.svg';
+import ProfileIcon from '../../assets/icons/icon_profile.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,10 +16,10 @@ export default function MainTabs() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarIcon: ({ color, size }) => {
-          let name = 'home-outline';
-          if (route.name === 'Message') name = 'chatbubble-outline';
-          if (route.name === 'Profile') name = 'person-outline';
-          return <Ionicons name={name} size={size} color={color} />;
+          if (route.name === 'Home') return <HomeIcon width={size} height={size} color={color} />;
+          if (route.name === 'Message') return <MessageIcon width={size} height={size} color={color} />;
+          if (route.name === 'Profile') return <ProfileIcon width={size} height={size} color={color} />;
+          return null;
         },
       })}
     >

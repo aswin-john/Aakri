@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet,  FlatList, TouchableOpacity } from 'react-native';
 import { SafeAreaView,  } from 'react-native-safe-area-context';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import HomeIcon from '../../assets/icons/icon_home.svg';
+import LanguageIcon from '../../assets/icons/icon_language.svg';
+import MoreIcon from '../../assets/icons/icon_more.svg';
 import TypeOfWasteCard from '../components/TypeOfWasteCard';
 import Banner from '../../assets/images/home_banner.svg';
 import HazardousIcon from '../../assets/images/waste_hazardous.svg';
@@ -22,16 +24,16 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.safe}>
       <View style={styles.headerRow}>
         <View style={styles.leftRow}>
-          <Ionicons name="home-outline" size={22} color="black" />
+          <HomeIcon width={22} height={22} color="#000" />
           <Text style={styles.locationText}>  My Location</Text>
         </View>
 
         <View style={styles.rightRow}>
           <TouchableOpacity style={styles.iconBtn}>
-            <Ionicons name="language-outline" size={20} color="black" />
+            <LanguageIcon width={20} height={20} color="#000" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconBtn}>
-            <Ionicons name="ellipsis-vertical" size={20} color="black" />
+            <MoreIcon width={20} height={20} color="#000" />
           </TouchableOpacity>
         </View>
       </View>
