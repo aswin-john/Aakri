@@ -2,12 +2,17 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TypeOfWasteCard from '../components/TypeOfWasteCard';
+import Banner from '../../assets/images/home_banner.svg';
+import HazardousIcon from '../../assets/images/waste_hazardous.svg';
+import RvsfIcon from '../../assets/images/waste_rvsf.svg';
+import ScrapIcon from '../../assets/images/waste_scrap.svg';
+import MarketplaceIcon from '../../assets/images/waste_marketplace.svg';
 
 const DATA = [
-  { id: '1', title: 'Hazardous waste' },
-  { id: '2', title: 'RVSF' },
-  { id: '3', title: 'Scrap' },
-  { id: '4', title: 'Marketplace' },
+  { id: '1', title: 'Hazardous waste', Icon: HazardousIcon },
+  { id: '2', title: 'RVSF', Icon: RvsfIcon },
+  { id: '3', title: 'Scrap', Icon: ScrapIcon },
+  { id: '4', title: 'Marketplace', Icon: MarketplaceIcon },
 ];
 
 export default function HomeScreen() {
@@ -33,7 +38,9 @@ export default function HomeScreen() {
         <Text style={styles.subText}>Welcome to WasteTrack — manage and categorize wastes easily.</Text>
       </View>
 
-      <View style={styles.bannerPlaceholder} />
+      <View style={{ marginTop: 16 }}>
+        <Banner width={'100%'} height={389} />
+      </View>
 
       <Text style={styles.sectionTitle}>Type of waste</Text>
 
@@ -67,7 +74,7 @@ const styles = StyleSheet.create({
   iconBtn: { padding: 6 },
   subTextWrap: { marginTop: 8 },
   subText: { color: '#333', fontSize: 14 },
-  bannerPlaceholder: { marginTop: 16, height: 289, width: '100%', backgroundColor: '#e0e0e0', borderRadius: 8 },
+//   bannerPlaceholder: { marginTop: 16, height: 289, width: '100%', backgroundColor: '#e0e0e0', borderRadius: 8 },
   sectionTitle: { marginTop: 18, fontSize: 18, fontWeight: '600', color: '#111' },
   columnWrapper: { justifyContent: 'space-between', marginTop: 12 },
 });

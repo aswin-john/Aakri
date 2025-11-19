@@ -2,9 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function TypeOfWasteCard({ item }) {
+  const Icon = item.Icon;
   return (
     <TouchableOpacity style={styles.card} activeOpacity={0.8}>
-      <View style={styles.imagePlaceholder} />
+      {Icon ? <Icon width={80} height={80} /> : <View style={styles.imagePlaceholder} />}
       <Text style={styles.title}>{item.title}</Text>
     </TouchableOpacity>
   );
