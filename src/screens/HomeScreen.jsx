@@ -23,9 +23,15 @@ export default function HomeScreen() {
   const renderHeader = () => (
     <>
       <View style={styles.headerRow}>
-        <View style={styles.leftRow}>
-          <HomeIcon width={22} height={22} color="#000" />
-          <Text style={styles.locationText}>  My Location</Text>
+        <View style = {{flexDirection:'column'}}>
+            <View style={[styles.leftRow,{}]}> 
+            <HomeIcon width={22} height={22} color="#000" />
+            <Text style={styles.locationText}>  My Location</Text>
+            </View>
+
+             <View style={styles.subTextWrap}>
+                <Text style={styles.subText}>Welcome to WasteTrack .</Text>
+             </View>
         </View>
 
         <View style={styles.rightRow}>
@@ -38,13 +44,11 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      <View style={styles.subTextWrap}>
-        <Text style={styles.subText}>Welcome to WasteTrack — manage and categorize wastes easily.</Text>
-      </View>
+     
 
       <Banner width={'100%'} height={389} />
 
-      <Text style={styles.sectionTitle}>Type of waste</Text>
+      {/* <Text style={styles.sectionTitle}>Type of waste</Text> */}
     </>
   );
 
@@ -77,9 +81,9 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   locationText: { fontSize: 16, color: '#000' },
-  rightRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  rightRow: { flexDirection: 'row', alignItems: 'center', gap: 10,alignSelf:'flex-end'},
   iconBtn: { padding: 6 },
-  subTextWrap: { marginTop: 8 },
+  subTextWrap: { marginTop: 0 },
   subText: { color: '#333', fontSize: 14 },
   sectionTitle: { marginTop: 18, fontSize: 18, fontWeight: '600', color: '#111' },
   columnWrapper: { justifyContent: 'space-between', marginTop: 12 },
