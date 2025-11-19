@@ -1,25 +1,17 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { enableScreens } from 'react-native-screens';
+import AppNavigator from './src/navigation/AppNavigator';
 
-function App() {
+enableScreens();
+
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>This is App</Text>
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar barStyle="dark-content" />
+      <AppNavigator />
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  text: {
-    fontSize: 20,
-    color: 'black',
-  },
-});
-
-export default App;
