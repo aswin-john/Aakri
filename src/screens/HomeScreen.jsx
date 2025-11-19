@@ -65,7 +65,7 @@ export default function HomeScreen() {
 
       <Banner width={'100%'} height={389} />
 
-      {/* <Text style={styles.sectionTitle}>Type of waste</Text> */}
+      <Text style={[styles.sectionTitle, { marginTop: 18 }]}>{t(lang, 'typeOfWaste')}</Text>
     </>
   );
 
