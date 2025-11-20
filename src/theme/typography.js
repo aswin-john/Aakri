@@ -65,6 +65,8 @@ const typography = {
 
 
   poppinsSemiBold20Green1: {fontSize: 20, color: colors.green1, fontFamily: fontFamily.semiBold},
+
+  poppinsLight15Grey1: {fontSize: 15, color: colors.grey1, fontFamily: fontFamily.light},
 };
 
 export default typography;

@@ -12,6 +12,7 @@ export default {
   black2:"#0D0D0F",
   grey1:"#6B737E",
   grey2:'#ECECEC',
+  grey3:'#D9D9D9',
   hex1:'rgba(196, 210, 223, 0.3)',
 
   green1:'#05BC54'

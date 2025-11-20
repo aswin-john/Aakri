@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  lang: 'en', // default to Arabic
+  lang: 'en', 
   rtl: false,
 };
 

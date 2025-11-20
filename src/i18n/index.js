@@ -1,7 +1,7 @@
 const translations = {
   en: {
     myLocation: 'Ernakulam',
-    welcome: 'Welcome to WasteTrack .',
+    welcome: 'Lorem ipsum dolor sit amet',
     yourContribution: 'Your Contribution',
     earnedCoin: 'Earned coin',
     kg: 'kg',
@@ -20,7 +20,7 @@ const translations = {
   },
  ar: {
   myLocation: 'موقعي',
-  welcome: 'مرحبًا بك في WasteTrack',
+  welcome: 'مرحبًا بك في  إليت. نولا بوسوير بورتيتور',
   yourContribution: 'مساهمتك',
   earnedCoin: 'العملة المكتسبة',
   kg: 'كجم',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList ,Image} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import TypeOfWasteCard from '../components/TypeOfWasteCard';
@@ -14,6 +14,8 @@ import typography from '../theme/typography';
 import colors from '../theme/colors';
 import HeaderRow from '../components/HeaderRow';
 import ContributionCard from '../components/ContributionCard';
+
+import bannerImage from '../../assets/images/banner.png';
 
 const DATA = [
   { id: '1', titleKey: 'hazardousWaste', Icon: HazardousIcon },
@@ -33,8 +35,8 @@ export default function HomeScreen() {
   const renderHeader = () => (
     <>
       <HeaderRow />
-      <ContributionCard contribution={'300.00'} unit={t(lang, 'kg')} coins={150} />
-      <Banner width={'100%'} height={389} />
+      <ContributionCard contribution={'300.00'} unit={t(lang, 'kg')} coins={150} />    
+      <Image source={bannerImage} style = {{width:'100%',height:389,resizeMode:'contain'}}/>
     </>
   );
 
@@ -45,14 +47,15 @@ export default function HomeScreen() {
         rtl ? { flexDirection: 'row-reverse' } : { flexDirection: 'row' }
       ]}>
         <Text style={[
-          typography.poppinsRegular14Grey1,
-          rtl ? { textAlign: 'right' } : { textAlign: 'left' },
-          { flex: 1 }
-        ]}>
-          {t(lang, 'footerText')}
-        </Text>
+  typography.poppinsLight15Grey1,
+  rtl ? { textAlign: 'right' } : { textAlign: 'left' },
+  { flex: 1, lineHeight: 20 }
+]}>
+  {t(lang, 'footerText')}
+</Text>
+
         <View style={styles.chevronIcon}>
-          <Text style={styles.chevronText}>⌄</Text>
+          <Text style={typography.poppinsLight15Grey1}>⌄</Text>
         </View>
       </View>
     </View>
@@ -80,18 +83,18 @@ const styles = StyleSheet.create({
   sectionTitle: { marginTop: 18, fontSize: 18, fontWeight: '600', color: '#111' },
 
   footerSection: {
-    marginTop: 24,
+    marginTop: 17,
     backgroundColor: '#fff',
-    borderRadius: 12,
+    borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#E5E5E5',
+    borderColor: colors.hex1,
   },
   expandableHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 16,
-    gap: 12,
+    // gap: 0,
   },
   chevronIcon: {
     width: 24,
@@ -99,6 +102,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  chevronText: { fontSize: 20, color: colors.grey1 },
+  // chevronText: { fontSize: 20, color: colors.grey1 },
 });
  

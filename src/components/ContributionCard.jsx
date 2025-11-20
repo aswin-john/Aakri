@@ -5,6 +5,8 @@ import typography from '../theme/typography';
 import colors from '../theme/colors';
 import { t } from '../i18n';
 
+import MoreIcon from '../../assets/icons/earned-coin.svg';
+
 export default function ContributionCard({ contribution = '0.00', unit = 'kg', coins = 0 }) {
   const rtl = useSelector((s) => s.language.rtl);
   const lang = useSelector((s) => s.language.lang);
@@ -20,7 +22,8 @@ export default function ContributionCard({ contribution = '0.00', unit = 'kg', c
 
       <View style={styles.coinsSection}>
         <View style={styles.badge}>
-          <Text style={styles.coinIcon}>🪙</Text>
+          {/* <Text style={styles.coinIcon}>🪙</Text> */}
+           <MoreIcon width={20} height={20} fill="#000" />
           <Text style={typography.poppinsSemiBold20Green1}>{coins}</Text>
         </View>
         <Text style={typography.poppinsMedium12White}>{t(lang, 'earnedCoin')}</Text>

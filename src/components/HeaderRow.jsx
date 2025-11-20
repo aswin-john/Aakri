@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
   },
   leftRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   rightRow: { flexDirection: 'row', alignItems: 'center', gap: 10, alignSelf: 'flex-end' },
-  iconBtn: { padding: 6 },
+  iconBtn: { padding: 6 ,borderWidth:1,width:30,height:30,alignItems:'center',justifyContent:'center',borderRadius:15,
+    borderColor:colors.grey3
+  },
   subTextWrap: { marginTop: 0 },
 });
