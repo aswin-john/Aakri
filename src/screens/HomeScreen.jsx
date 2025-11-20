@@ -24,7 +24,7 @@ const DATA = [
   { id: '4', titleKey: 'marketplace', Icon: MarketplaceIcon },
 ];
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const rtl = useSelector((s) => s.language.rtl);
   const lang = useSelector((s) => s.language.lang);
 
@@ -71,7 +71,9 @@ export default function HomeScreen() {
         contentContainerStyle={{ paddingBottom: 24 }}
         ListHeaderComponent={renderHeader}
         ListFooterComponent={renderFooter}
-        renderItem={({ item }) => <TypeOfWasteCard item={item} />}
+        renderItem={({ item }) => (
+          <TypeOfWasteCard item={item} onPress={() => navigation.navigate('AddLocation', { item })} />
+        )}
       />
     </SafeAreaView>
   );

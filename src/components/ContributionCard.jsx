@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     paddingBottom: 11,
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 0,
   },
   left: { flex: 1 },
   coinsSection: { alignItems: 'center' },

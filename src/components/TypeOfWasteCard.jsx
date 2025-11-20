@@ -5,11 +5,11 @@ import { t } from '../i18n';
 import typography from '../theme/typography';
 import colors from '../theme/colors';
 
-export default function TypeOfWasteCard({ item }) {
+export default function TypeOfWasteCard({ item, onPress }) {
   const Icon = item.Icon;
   const lang = useSelector((s) => s.language.lang);
   return (
-    <TouchableOpacity style={styles.card} activeOpacity={0.8}>
+    <TouchableOpacity style={styles.card} activeOpacity={0.8} onPress={onPress}>
       <Text style={typography.poppinsSemiBold23Black2}>{t(lang, item.titleKey || item.title)}</Text>
       {Icon ? <Icon width={80} height={80} /> : <View style={styles.imagePlaceholder} />}
     </TouchableOpacity>
