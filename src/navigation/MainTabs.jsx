@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import HomeIcon from '../../assets/icons/icon_home.svg';
 import MessageIcon from '../../assets/icons/icon_message.svg';
 import ProfileIcon from '../../assets/icons/icon_profile.svg';
+import typography from '../theme/typography';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +38,14 @@ export default function MainTabs() {
           const Icon = scr.Icon;
           return <Icon width={size} height={size} fill={color} />;
         },
-        tabBarLabelStyle: { textAlign: 'center' },
+        tabBarLabelStyle: {
+  ...typography.poppinsRegular8White,
+  textAlign: 'center',
+},
+ tabBarStyle: {
+          backgroundColor: '#000000', // Black background
+        },
+
       })}
     >
       {screens.map((s) => (

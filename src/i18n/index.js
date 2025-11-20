@@ -1,18 +1,19 @@
 const translations = {
   en: {
-    myLocation: 'My Location',
+    myLocation: 'Ernakulam',
     welcome: 'Welcome to WasteTrack .',
     typeOfWaste: 'Type of waste',
     messages: 'Messages',
     profile: 'Profile',
   },
-  ar: {
-    myLocation: 'موقعي',
-    welcome: 'مر وتصنيف النفايات بسهولة.',
-    typeOfWaste: 'نوع النفايات',
-    messages: 'الرسائل',
-    profile: 'الملف الشخصي',
-  },
+ ar: {
+  myLocation: 'موقعي', 
+  welcome: 'مرحبًا بك في WasteTrack', 
+  typeOfWaste: 'نوع النفايات',
+  messages: 'الرسائل', 
+  profile: 'الملف الشخصي', 
+}
+
 };
 
 export function t(lang, key) {

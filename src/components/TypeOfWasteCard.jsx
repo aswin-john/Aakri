@@ -7,14 +7,25 @@ export default function TypeOfWasteCard({ item }) {
   const Icon = item.Icon;
   return (
     <TouchableOpacity style={styles.card} activeOpacity={0.8}>
+      <Text style={typography.poppinsSemiBold23Black2}>{item.title}</Text>
       {Icon ? <Icon width={80} height={80} /> : <View style={styles.imagePlaceholder} />}
-      <Text style={styles.title}>{item.title}</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  card: { width: '48%', backgroundColor: colors.background, borderRadius: 8, padding: 12, alignItems: 'center', elevation: 2 },
+  card: { 
+    width: '48%', backgroundColor: colors.background,  padding: 0, alignItems: 'center',borderWidth:1,borderColor:colors.hex1, 
+    boxShadow: [
+      {
+        offsetX: 0,
+        offsetY: 0,
+        blurRadius: 10,
+        spreadRadius: 0,
+        color: colors.grey2,
+        inset: true, // Inner shadow
+      },
+    ],
+  },
   imagePlaceholder: { width: 80, height: 80, borderRadius: 8, backgroundColor: '#d8d8d8' },
-  title: { marginTop: 8, textAlign: 'center', color: colors.text, ...typography.body },
 });
