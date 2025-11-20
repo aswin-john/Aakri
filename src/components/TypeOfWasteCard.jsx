@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
+import { t } from '../i18n';
 import typography from '../theme/typography';
 import colors from '../theme/colors';
 
 export default function TypeOfWasteCard({ item }) {
   const Icon = item.Icon;
+  const lang = useSelector((s) => s.language.lang);
   return (
     <TouchableOpacity style={styles.card} activeOpacity={0.8}>
-      <Text style={typography.poppinsSemiBold23Black2}>{item.title}</Text>
+      <Text style={typography.poppinsSemiBold23Black2}>{t(lang, item.titleKey || item.title)}</Text>
       {Icon ? <Icon width={80} height={80} /> : <View style={styles.imagePlaceholder} />}
     </TouchableOpacity>
   );
